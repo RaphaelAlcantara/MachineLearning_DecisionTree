@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier, plot_tree
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 import matplotlib.pyplot as plt
 
@@ -15,20 +16,37 @@ y = y.map(lambda x: 1 if x == 1 else 0)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
+# Decision Tree Classifier
 clf = DecisionTreeClassifier(random_state=42)
 clf.fit(X_train, y_train)
 
-y_pred = clf.predict(X_test)
+y_pred_tree = clf.predict(X_test)
 
-accuracy = accuracy_score(y_test, y_pred)
-print(f"Acurácia: {accuracy:.2f}")
+accuracy_tree = accuracy_score(y_test, y_pred_tree)
+print(f"Acurácia da Árvore de decisão: {accuracy_tree:.2f}")
 
-print("Matriz de Confusão:")
-print(confusion_matrix(y_test, y_pred))
+print("Matriz de Confusão da Decision Tree:")
+print(confusion_matrix(y_test, y_pred_tree))
 
-print("Relatório de Classificação:")
-print(classification_report(y_test, y_pred))
+print("Relatório de Classificação da Decision Tree:")
+print(classification_report(y_test, y_pred_tree))
 
+# K-Nearest Neighbors (KNN) Classifier
+knn = KNeighborsClassifier(n_neighbors=4)
+knn.fit(X_train, y_train)
+
+y_pred_knn = knn.predict(X_test)
+
+accuracy_knn = accuracy_score(y_test, y_pred_knn)
+print(f"Acurácia do KNN: {accuracy_knn:.2f}")
+
+print("Matriz de Confusão do KNN:")
+print(confusion_matrix(y_test, y_pred_knn))
+
+print("Relatório de Classificação do KNN:")
+print(classification_report(y_test, y_pred_knn))
+
+# Plot Decision Tree
 feature_names = X.columns.tolist()
 
 plt.figure(figsize=(20, 10))
