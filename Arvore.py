@@ -16,7 +16,7 @@ y = y.map(lambda x: 1 if x == 1 else 0)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Decision Tree Classifier
+# Arvore de decisão
 clf = DecisionTreeClassifier(random_state=42)
 clf.fit(X_train, y_train)
 
@@ -28,7 +28,7 @@ print(f"Acurácia da Árvore de decisão: {accuracy_tree:.2f}")
 print("Matriz de Confusão da Decision Tree:")
 print(confusion_matrix(y_test, y_pred_tree))
 
-print("Relatório de Classificação da Decision Tree:")
+print("Relatório de Classificação da Árvore de decisão:")
 print(classification_report(y_test, y_pred_tree))
 
 # K-Nearest Neighbors (KNN) Classifier
@@ -46,7 +46,7 @@ print(confusion_matrix(y_test, y_pred_knn))
 print("Relatório de Classificação do KNN:")
 print(classification_report(y_test, y_pred_knn))
 
-# Plot Decision Tree
+# Plot gráfico da árvore de decisão
 feature_names = X.columns.tolist()
 
 plt.figure(figsize=(20, 10))
