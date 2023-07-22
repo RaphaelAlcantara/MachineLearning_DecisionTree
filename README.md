@@ -1,8 +1,5 @@
 # Relatório Árvore de Decisão
 
-Tags: Done
-Atividades: Projeto Árvore de decisão (https://www.notion.so/Projeto-rvore-de-decis-o-7011c1609211411db71fd3b461e38c9f?pvs=21)
-
 # 1. Breve descrição da técnica
 
 A técnica utilizada neste experimento é a Árvore de Decisão, um algoritmo de aprendizado de máquina supervisionado usado para classificação e regressão. Ele cria uma árvore de decisão hierárquica onde cada nó interno representa uma decisão com base em um atributo específico, e cada folha representa a classe de saída.
